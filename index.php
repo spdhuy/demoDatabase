@@ -17,11 +17,15 @@
     <title>Title</title>
 </head>
 <body>
-    <?php foreach ($listAccount as $account) { ?>
+    <?php foreach ($listAccount as $account) : ?>
         <tr>
             <td><?= $account['_username']?></td>
             <td><?= $account['_password']?></td>
+            <form action="delete.php" method="post">
+                <input type="hidden" name="_username" value="<?= $account['_username'] ?>">
+                <input type="submit" value="delete">
+            </form>
         </tr>
-    <?php  } ?>
+    <?php endforeach; ?>
 </body>
 </html>
